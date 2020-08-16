@@ -56,3 +56,9 @@ class Graph:
 
     def connectedGraph(self):
         return len(self.connectedComponents()) == 1
+
+    def getCostSum(self):
+        suma = 0
+        for (k, v) in self.cost.items():
+            suma += v
+        return suma

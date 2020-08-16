@@ -2,6 +2,7 @@ from graph import Graph
 from genetic_algorithm import GeneticAlgorithm
 from brute_force_algorithm import BruteForce
 from greedy_algorithm import GreedyAlgorithm
+from simulated_annealing_algorithm import SimulatedAnnealing
 
 
 def print_solution(solution):
@@ -43,6 +44,13 @@ def genetic(graph):
     print_solution(solution)
 
 
+def simulated_annealing(graph, nIterations):
+    print('Simulated-annealing: ')
+    simulated_annealing = SimulatedAnnealing(graph, nIterations)
+    solution = simulated_annealing.simulated_annealing()
+    print_solution(solution)
+
+
 if __name__ == "__main__":
 
     # primer 1
@@ -60,6 +68,9 @@ if __name__ == "__main__":
     # genetic
     genetic(graph)
 
+    # simulated annealing
+    simulated_annealing(graph, 10000)
+
     # primer 2
     adjacency_list = {0: [1, 2], 1: [0, 4], 2: [0, 3], 3: [2, 4], 4: [1, 3]}
     vertics_cost = {0: 4, 1: 7, 2: 1, 3: 4, 4: 9}
@@ -73,6 +84,9 @@ if __name__ == "__main__":
 
     # genetic
     genetic(graph)
+
+    # simulated annealing
+    simulated_annealing(graph, 10000)
 
     # # primer 3
     vertics_cost = {0: 3, 1: 2, 2: 5, 3: 1, 4: 4, 5: 8, 6: 2, 7: 3, 8: 2, 9: 4}
@@ -89,6 +103,9 @@ if __name__ == "__main__":
     # genetic
     genetic(graph)
 
+    # simulated annealing
+    simulated_annealing(graph, 10000)
+
     # Primer 4
     vertics_cost = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 6, 7: 5, 8: 4, 9: 1, 10: 2, 11: 3, 12: 3, 13: 2,
                     14: 1, 15: 2, 16: 5, 17: 4, 18: 3, 19: 2, 20: 4, 21: 3, 22: 2, 23: 4, 24: 2, 25: 1, 26: 3, 27: 1, 28: 1, 29: 1, 30: 3, 31: 1}
@@ -104,3 +121,6 @@ if __name__ == "__main__":
 
     # genetic
     genetic(graph)
+
+    # simulated annealing
+    simulated_annealing(graph, 10000)

@@ -52,7 +52,6 @@ class Individual:
         return abs(w1-w2)
 
     def fitnessFunction(self):
-
         return self.value() + self.penalty_function()
 
     def getSubgraphs(self):

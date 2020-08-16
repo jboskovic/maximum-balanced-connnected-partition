@@ -2,8 +2,6 @@ from graph import Graph
 from genetic_algorithm import GeneticAlgorithm
 from brute_force_algorithm import BruteForce
 
-import tracemalloc
-
 
 def print_solution(solution):
     print('Solution: ')
@@ -14,7 +12,6 @@ def print_solution(solution):
 
 
 if __name__ == "__main__":
-    tracemalloc.start()
     # parametri genetskog algoritma
 
     nTournament = 6
@@ -57,6 +54,23 @@ if __name__ == "__main__":
     print_solution(solution)
 
     # # primer 3
+    vertics_cost = [3, 2, 5, 1, 4, 8, 2, 3, 2, 4]
+    adjacency_list = {0: [1, 2, 3], 1: [0, 3, 4], 2: [0, 5, 6, 7], 3: [0, 1, 8], 4: [
+        1, 3], 5: [2, 6, 9], 6: [0, 2, 5, 9], 7: [2, 9], 8: [3], 9: [6, 7]}
+    graph = Graph(adjacency_list, vertics_cost)
+
+    # genetski
+    genetic = GeneticAlgorithm(
+        nPopulation, nIterations, nElite, nTournament, probability, graph)
+    solution = genetic.genetic_algorithm()
+    print_solution(solution)
+
+    # brute-force
+    brute_force = BruteForce(graph)
+    solution = brute_force.brute_force()
+    print_solution(solution)
+
+    # Primer 4
     # vertics_cost = [1, 2, 3, 4, 5, 6, 6, 5, 4, 1, 2, 3, 3, 2,
     #                 1, 2, 5, 4, 3, 2, 4, 3, 2, 4, 2, 1, 3, 1, 1, 1, 3, 1]
     # adjacency_list = {0: [1, 3], 1: [0, 3, 20, 11, 6, 28], 2: [9, 10, 24], 3: [0, 1, 9, 12, 4, 5], 4: [3, 19, 5], 5: [3, 4], 6: [1, 7, 8], 7: [6, 8, 14], 8: [6, 7, 9], 9: [8, 20, 3, 2, 10, 12, 30, 23, 16, 29, 15], 10: [2, 17, 9], 11: [1, 13, 18, 25, 12], 12: [11, 3, 9], 13: [18, 11], 14: [7, 15, 27], 15: [
@@ -73,10 +87,3 @@ if __name__ == "__main__":
     # brute_force = BruteForce(graph)
     # solution = brute_force.brute_force()
     # print_solution(solution)
-
-    # snapshot = tracemalloc.take_snapshot()
-    # top_stats = snapshot.statistics('lineno')
-
-    # print("[ Top 10 ]")
-    # for stat in top_stats[:10]:
-    #     print(stat)

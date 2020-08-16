@@ -54,11 +54,5 @@ class Graph:
                 maks = self.cost[k]
         return maks
 
-    def sumCost(self):
-        sum = 0
-        for k in self.adj.keys():
-            sum += self.cost[k]
-        return sum
-
     def connectedGraph(self):
         return len(self.connectedComponents()) == 1

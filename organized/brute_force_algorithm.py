@@ -1,5 +1,5 @@
 from graph import Graph
-from itertools import combinations
+import itertools
 from individual import Individual
 import gc
 
@@ -17,22 +17,17 @@ class BruteForce:
     def brute_force(self):
         best = [float('inf'), Individual(Graph({}, self.graph.cost), [])]
         vertics = self.graph.V
-        k = vertics//2
-        done = False
-        for i in range(1, k):
-            combes = list(combinations(range(vertics), k))
-            for comb in combes:
-                code = [0] * vertics
-                for index in comb:
-                    code[index] = 1
-                ind = Individual(self.graph, code)
-                suma = ind.value()
-                if suma > best[0]:
-                    continue
-                else:
-                    ind.getSubgraphs()
-                    if ind.subgraph1.connectedGraph() and ind.subgraph2.connectedGraph():
-                        best[0] = suma
-                        best[1] = ind
+        combinations = list(itertools.product([0, 1], repeat=vertics))
+        combinations = combinations[1:len(combinations)//2]
+        for comb in combinations:
+            ind = Individual(self.graph, comb)
+            suma = ind.value()
+            if suma > best[0]:
+                continue
+            else:
+                ind.getSubgraphs()
+                if ind.subgraph1.connectedGraph() and ind.subgraph2.connectedGraph():
+                    best[0] = suma
+                    best[1] = ind
 
         return best[1]

@@ -3,6 +3,10 @@ from individual import Individual
 
 
 class GeneticAlgorithm:
+    # nPopulation - velicina populacije
+    # nIterations - broj iteracija
+    # nElite - velicina izbora elitnih jedinki koji ulaze u selekciju
+    # probability - verovatnoca mutacije
     def __init__(self, nPopulation, nIterations, nElite, nTournament, probability, graph):
         self.nPopulation = nPopulation
         self.nIterations = nIterations
@@ -62,14 +66,14 @@ class GeneticAlgorithm:
                 self.mutation(newPopulation[i])
                 self.mutation(newPopulation[i+1])
 
-                newPopulation[i].getSubgraphs()
+                # newPopulation[i].getSubgraphs()
                 newPopulation[i].fitness = newPopulation[i].fitnessFunction()
 
-                newPopulation[i+1].getSubgraphs()
                 newPopulation[i+1].fitness = newPopulation[i +
                                                            1].fitnessFunction()
-                newPopulation[i].getSubgraphs()
+
             population = newPopulation
 
         population.sort()
+        population[0].getSubgraphs()
         return population[0]

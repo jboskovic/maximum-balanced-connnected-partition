@@ -47,4 +47,6 @@ class GreedyAlgorithm:
             else:
                 break
 
-        return Individual(self.graph, code)
+        Ind = Individual(self.graph, code)
+        Ind.getSubgraphs()
+        return Ind

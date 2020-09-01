@@ -46,4 +46,7 @@ class SimulatedAnnealing:
             if newValue.fitness < bestValue.fitness:
                 bestValue = Individual(self.graph, newValue.code)
 
+            if bestValue.fitness == 0:
+                break
+        bestValue.getSubgraphs()
         return bestValue

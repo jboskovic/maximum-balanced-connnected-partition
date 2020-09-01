@@ -3,6 +3,8 @@ from genetic_algorithm import GeneticAlgorithm
 from brute_force_algorithm import BruteForce
 from greedy_algorithm import GreedyAlgorithm
 from simulated_annealing_algorithm import SimulatedAnnealing
+import time
+
 
 
 def print_solution(solution):
@@ -60,16 +62,41 @@ if __name__ == "__main__":
     graph = Graph(adjacency_list, vertics_cost)
 
     # brute force
+    start = time.time()
     brute_force(graph)
+    end = time.time()
+    time_brute= end - start
+    
 
     # greedy
+    start = time.time()
     greedy(graph)
+    end = time.time()
+    time_greedy= end - start
+    
 
     # genetic
+    start = time.time()
     genetic(graph)
+    end = time.time()
+    time_genetic= end - start
+    
 
     # simulated annealing
+    start = time.time()
     simulated_annealing(graph, 10000)
+    end = time.time()
+    time_simulated= end - start
+    
+    
+    #time 
+    print('Brute force  - time:',time_brute)
+    print('Greedy       - time:',time_greedy)
+    print('Genetic      - time:',time_genetic)
+    print('Simulated a. - time:',time_brute)
+    
+    print('------------------------------------------------------------------------------------')
+    
 
     # primer 2
     adjacency_list = {0: [1, 2], 1: [0, 4], 2: [0, 3], 3: [2, 4], 4: [1, 3]}
@@ -77,16 +104,40 @@ if __name__ == "__main__":
     graph = Graph(adjacency_list, vertics_cost)
 
     # brute force
+    start = time.time()
     brute_force(graph)
+    end = time.time()
+    time_brute= end - start
+    
 
     # greedy
+    start = time.time()
     greedy(graph)
+    end = time.time()
+    time_greedy= end - start
+    
 
     # genetic
+    start = time.time()
     genetic(graph)
+    end = time.time()
+    time_genetic= end - start
+    
 
     # simulated annealing
+    start = time.time()
     simulated_annealing(graph, 10000)
+    end = time.time()
+    time_simulated= end - start
+    
+    
+    #time 
+    print('Brute force  - time:',time_brute)
+    print('Greedy       - time:',time_greedy)
+    print('Genetic      - time:',time_genetic)
+    print('Simulated a. - time:',time_brute)
+    
+    print('------------------------------------------------------------------------------------')
 
     # # primer 3
     vertics_cost = {0: 3, 1: 2, 2: 5, 3: 1, 4: 4, 5: 8, 6: 2, 7: 3, 8: 2, 9: 4}
@@ -95,16 +146,41 @@ if __name__ == "__main__":
     graph = Graph(adjacency_list, vertics_cost)
 
     # brute force
+    start = time.time()
     brute_force(graph)
+    end = time.time()
+    time_brute= end - start
+    
 
     # greedy
+    start = time.time()
     greedy(graph)
+    end = time.time()
+    time_greedy= end - start
+    
 
     # genetic
+    start = time.time()
     genetic(graph)
+    end = time.time()
+    time_genetic= end - start
+    
 
     # simulated annealing
+    start = time.time()
     simulated_annealing(graph, 10000)
+    end = time.time()
+    time_simulated= end - start
+    
+    
+    #time 
+    print('Brute force  - time:',time_brute)
+    print('Greedy       - time:',time_greedy)
+    print('Genetic      - time:',time_genetic)
+    print('Simulated a. - time:',time_brute)
+    
+    
+    print('------------------------------------------------------------------------------------')
 
     # Primer 4
     vertics_cost = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 6, 7: 5, 8: 4, 9: 1, 10: 2, 11: 3, 12: 3, 13: 2,
@@ -113,14 +189,37 @@ if __name__ == "__main__":
         14, 12], 16: [22, 23, 17, 9], 17: [16, 10], 18: [19, 11, 27, 13], 19: [18, 27, 4, 31, 26], 20: [1, 9], 21: [28, 22], 22: [29, 21, 16], 23: [16, 9, 24, 30], 24: [23, 31, 2], 25: [28, 11, 29], 26: [19, 31], 27: [14, 18, 19], 28: [21, 1, 25], 29: [25, 22, 9], 30: [23, 9], 31: [19, 26, 24]}
     graph = Graph(adjacency_list, vertics_cost)
 
+    # ULAZI U BESKONACNU PETNJU ILI TAKO NESTO (MORALA SAM DA RESTARTUJEM KOMP)
     # brute force
-    # brute_force(graph)
+    #start = time.time()
+    #brute_force(graph)
+    #end = time.time()
+    #time_brute= end - start
+    
 
     # greedy
+    start = time.time()
     greedy(graph)
+    end = time.time()
+    time_greedy= end - start
+    
 
     # genetic
+    start = time.time()
     genetic(graph)
+    end = time.time()
+    time_genetic= end - start
+    
 
     # simulated annealing
+    start = time.time()
     simulated_annealing(graph, 10000)
+    end = time.time()
+    time_simulated= end - start
+    
+    
+    #time 
+    #print('Brute force  - time:',time_brute)
+    print('Greedy       - time:',time_greedy)
+    print('Genetic      - time:',time_genetic)
+    print('Simulated a. - time:',time_brute)

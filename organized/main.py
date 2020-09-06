@@ -140,7 +140,6 @@ if __name__ == "__main__":
         14, 12], 16: [22, 23, 17, 9], 17: [16, 10], 18: [19, 11, 27, 13], 19: [18, 27, 4, 31, 26], 20: [1, 9], 21: [28, 22], 22: [29, 21, 16], 23: [16, 9, 24, 30], 24: [23, 31, 2], 25: [28, 11, 29], 26: [19, 31], 27: [14, 18, 19], 28: [21, 1, 25], 29: [25, 22, 9], 30: [23, 9], 31: [19, 26, 24]}
     graph = Graph(adjacency_list, vertics_cost)
 
-    # ULAZI U BESKONACNU PETNJU ILI TAKO NESTO (MORALA SAM DA RESTARTUJEM KOMP) - pojede memoriju
     # brute force
     #start = time.time()
     # brute_force(graph)

@@ -72,7 +72,17 @@ def genetic_population(graph,pop):
     solution = genetic.genetic_algorithm()
     return solution.fitness
 
+def genetic_iterations(graph,ite):
+    nTournament = 6
+    probability = 0.05
+    nPopulation = 50
+    nIterations = ite
+    nElite = 10
 
+    genetic = GeneticAlgorithm(
+        nPopulation, nIterations, nElite, nTournament, probability, graph)
+    solution = genetic.genetic_algorithm()
+    return solution.fitness
 
 if __name__ == "__main__":
     
@@ -148,7 +158,7 @@ if __name__ == "__main__":
     
 
 
-
+    
     #simulirano kaljenje (poredjenje rezlutata sa brojem iteracija) (primer 4)
     simulated10000=simulated_annealing_fitness(graph4,10000)
     simulated5000=simulated_annealing_fitness(graph4,5000)
@@ -190,7 +200,31 @@ if __name__ == "__main__":
     
     plt.xlabel('population')
     plt.ylabel('fitness')
-    plt.title('')
+    plt.title('Poredjenje velicine sa rezultatom')
+    
+    plt.show()
+    
+    #genetski algoritam (poredjenje broj iteracija sa rezultatom, za broj populaija=50) (primer3)
+    
+    genetic_100=genetic_iterations(graph3, 100)
+    genetic_200=genetic_iterations(graph3, 200)
+    genetic_300=genetic_iterations(graph3, 300)
+    genetic_400=genetic_iterations(graph3, 400)
+    genetic_500=genetic_iterations(graph3, 500)
+    genetic_600=genetic_iterations(graph3, 600)
+    genetic_700=genetic_iterations(graph3, 700)
+    genetic_800=genetic_iterations(graph3, 800)
+    genetic_900=genetic_iterations(graph3, 900)
+    genetic_1000=genetic_iterations(graph3, 1000)
+    
+    x2=[100,200,300,400,500,600,700,800,900,1000]
+    y2=[genetic_100,genetic_200,genetic_300,genetic_400,genetic_500,genetic_600,genetic_700,genetic_800,genetic_900,genetic_1000]
+    
+    plt.plot(x2,y2)
+    
+    plt.xlabel('iterations')
+    plt.ylabel('fitness')
+    plt.title('Poredjenje iteracija sa rezultatom')
     
     plt.show()
     
@@ -209,4 +243,17 @@ if __name__ == "__main__":
   
     plt.show() 
     
+     #vreme (primer 4)
     
+    left = [1, 2, 3] 
+    height = [greedy_time4, genetic_time4, simulated_time4] 
+    tick_label = ['greedy', 'genetic', 'sa'] 
+  
+    plt.bar(left, height, tick_label = tick_label, 
+        width = 0.8, color = [ 'green','blue','orange']) 
+
+    plt.xlabel('algorithm') 
+    plt.ylabel('time - secunds') 
+    plt.title('') 
+  
+    plt.show() 
